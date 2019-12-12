@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 
-@Controller
+@RestController
 @RequestMapping(path = "/api/product")
 public class ProductApiController {
 
