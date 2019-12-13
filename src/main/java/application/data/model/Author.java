@@ -11,6 +11,9 @@ public class Author {
     @Id
     private int id;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+    private List<AuthorProduct> authorProductList = new ArrayList<>();
+
     @Column(name = "author_name")
     private String name;
 
@@ -30,15 +33,11 @@ public class Author {
         this.name = name;
     }
 
-    public List<AuthorProduct> getListAuthorProduct() {
-        return listAuthorProduct;
+    public List<AuthorProduct> getAuthorProductList() {
+        return authorProductList;
     }
 
-    public void setListAuthorProduct(List<AuthorProduct> listAuthorProduct) {
-        this.listAuthorProduct = listAuthorProduct;
+    public void setAuthorProductList(List<AuthorProduct> authorProductList) {
+        this.authorProductList = authorProductList;
     }
-
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "author")
-    private List<AuthorProduct> listAuthorProduct = new ArrayList<>();
-
 }

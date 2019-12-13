@@ -16,9 +16,19 @@ public class Product {
     @Column(name = "category_id", insertable = false, updatable = false)
     private int categoryId;
 
+    @Column(name = "publisher_id", insertable = false, updatable = false)
+    private int publisherId;
+
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
+
+    @Column(name = "discount_id", insertable = false, updatable = false)
+    private int discountId;
+
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "discount_id")
+    private Discount discount;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<ProductImage> ProductImagelist = new ArrayList<>();
@@ -32,11 +42,11 @@ public class Product {
     @Column(name = "main_image")
     private String mainImage;
 
-    @Column(name = "author_name")
-    private String authorName;
+    @Column(name = "author_id", insertable = false, updatable = false)
+    private int authorId;
 
-    @Column(name = "publisher_name")
-    private String publisherName;
+    @Column(name = "amount")
+    private int amount;
 
     @Column(name = "price")
     private double price;
@@ -61,20 +71,28 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    public List getProductImagelist() {
+    public int getPublisherId() {
+        return publisherId;
+    }
+
+    public void setPublisherId(int publisherId) {
+        this.publisherId = publisherId;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public List<ProductImage> getProductImagelist() {
         return ProductImagelist;
     }
 
-    public void setProductImagelist(List productImagelist) {
+    public void setProductImagelist(List<ProductImage> productImagelist) {
         ProductImagelist = productImagelist;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
     public String getName() {
@@ -101,28 +119,28 @@ public class Product {
         this.mainImage = mainImage;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public int getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
-    public String getPublisherName() {
-        return publisherName;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setPublisherName(String publisherName) {
-        this.publisherName = publisherName;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public Date getPublishedDate() {
@@ -131,5 +149,21 @@ public class Product {
 
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public int getDiscountId() {
+        return discountId;
+    }
+
+    public void setDiscountId(int discountId) {
+        this.discountId = discountId;
+    }
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
     }
 }

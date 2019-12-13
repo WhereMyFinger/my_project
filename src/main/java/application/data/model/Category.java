@@ -14,7 +14,14 @@ public class Category {
     private int id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-    private List<Product> listProducts = new ArrayList<>();
+    private List<ProductCategory> productCategoryList = new ArrayList<>();
+
+    @Column(name = "discount_id", insertable = false, updatable = false)
+    private int discountId;
+
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "discount_id")
+    private Discount discount;
 
     @Column(name = "name")
     private String name;
@@ -34,12 +41,12 @@ public class Category {
         this.id = id;
     }
 
-    public List<Product> getListProducts() {
-        return listProducts;
+    public List<ProductCategory> getProductCategoryList() {
+        return productCategoryList;
     }
 
-    public void setListProducts(List<Product> listProducts) {
-        this.listProducts = listProducts;
+    public void setProductCategoryList(List<ProductCategory> productCategoryList) {
+        this.productCategoryList = productCategoryList;
     }
 
     public String getName() {
@@ -64,5 +71,21 @@ public class Category {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public int getDiscountId() {
+        return discountId;
+    }
+
+    public void setDiscountId(int discountId) {
+        this.discountId = discountId;
+    }
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
     }
 }

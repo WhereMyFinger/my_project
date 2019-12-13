@@ -8,6 +8,7 @@ public class AuthorProduct {
     @Column(name = "product_author_id")
     @Id
     private int id;
+
     @ManyToOne(optional = true,fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private Author author;
