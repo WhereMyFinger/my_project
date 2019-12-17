@@ -13,9 +13,6 @@ public class Product {
     @Id
     private int id;
 
-    @Column(name = "category_id", insertable = false, updatable = false)
-    private int categoryId;
-
     @Column(name = "publisher_id", insertable = false, updatable = false)
     private int publisherId;
 
@@ -42,9 +39,6 @@ public class Product {
     @Column(name = "main_image")
     private String mainImage;
 
-    @Column(name = "author_id", insertable = false, updatable = false)
-    private int authorId;
-
     @Column(name = "amount")
     private int amount;
 
@@ -61,14 +55,6 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     public int getPublisherId() {
@@ -117,14 +103,6 @@ public class Product {
 
     public void setMainImage(String mainImage) {
         this.mainImage = mainImage;
-    }
-
-    public int getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
     }
 
     public int getAmount() {
