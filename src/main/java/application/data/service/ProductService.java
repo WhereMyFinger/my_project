@@ -17,5 +17,35 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+    public void addNewProduct(Product product){
+        productRepository.save(product);
+    }
+    @Transactional
+    public void addNewListProduct(List<Product> listProduct){
+        productRepository.save(listProduct);
+    }
+    public Product findOne(int produtId){
+        return productRepository.findOne(produtId);
+    }
+    public boolean updateProduct(Product product){
+        try{
+            productRepository.save(product);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean deleteProduct(int productId){
+        try{
+            productRepository.delete(productId);
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

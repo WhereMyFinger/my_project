@@ -18,5 +18,32 @@ public class CategoryService {
         public long getTotalCategories() {
             return categoryRepository.getTotalCategories();
         }
+        public void addNewCategory(Category category){
+            categoryRepository.save(category);
+        }
+        public void addNewListCategory(List<Category> listCategory){
+            categoryRepository.save(listCategory);
+        }
+        public Category findOne(int categoryId){
+            return categoryRepository.findOne(categoryId);
+        }
+        public boolean updateCategory(Category category){
+            try{
+                categoryRepository.save(category);
+                return true;
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return false;
+        }
+        public  boolean daleteCategory(int categoryId){
+            try {
+                categoryRepository.delete(categoryId);
+                return true;
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return false;
+        }
 
 }
