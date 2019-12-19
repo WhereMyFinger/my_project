@@ -17,7 +17,7 @@ public class News {
     private int newsCategoryId;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "news_category_id")
+    @JoinColumn(name = "news_category_id", insertable = false, updatable = false)
     private NewsCategory newsCategory;
 
     @Column(name = "user_id")

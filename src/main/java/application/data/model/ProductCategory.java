@@ -10,14 +10,14 @@ public class ProductCategory {
     @Id
     private int id;
 
-    @Column(name = "category_id")
+    @Column(name = "category_id", insertable = false, updatable = false)
     private int categoryId;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(name = "product_id")
+    @Column(name = "product_id", insertable = false, updatable = false)
     private int productId;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)

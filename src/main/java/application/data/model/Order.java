@@ -20,7 +20,7 @@ public class Order {
     @JoinColumn(name = "discount_id")
     private Discount discount;
 
-    @Column(name = "status_id")
+    @Column(name = "status_id", insertable = false, updatable = false)
     private int statusId;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)

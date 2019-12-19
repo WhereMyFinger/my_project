@@ -13,14 +13,14 @@ public class AuthorProduct {
     @JoinColumn(name = "author_id")
     private Author author;
 
-    @Column(name = "author_id")
+    @Column(name = "author_id", insertable = false, updatable = false)
     private int authorId;
 
     @ManyToOne(optional = true,fetch = FetchType.LAZY)
     @JoinColumn(name = "prouct_id")
     private Product product;
 
-    @Column(name = "product_id")
+    @Column(name = "product_id", insertable = false, updatable = false)
     private int productId;
 
     public int getId() {
