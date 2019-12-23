@@ -29,7 +29,7 @@ public class Category {
     @Column(name = "short_desc")
     private String shortDesc;
 
-    @Column(name = "craeted_date")
+    @Column(name = "created_date")
     private Date createdDate;
 
 
